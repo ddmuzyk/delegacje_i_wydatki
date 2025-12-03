@@ -1,9 +1,15 @@
 import styled from "styled-components"
+import { colors } from "src/constants/colors";
 
 const S = {
   Sidebar: styled.aside`
     width: 250px;
-    height: 100%;
+    padding: 8px;
+    background-color: ${colors.navy[2]};
+    /* height: 100%; */
+  `,
+  NavButton: styled.button`
+
   `,
 };
 
