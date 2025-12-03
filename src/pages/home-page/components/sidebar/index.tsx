@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { colors } from "src/constants/colors";
+import { Button } from "src/components/button";
+import { NavLink } from "react-router";
 
 const S = {
   Sidebar: styled.aside`
@@ -8,11 +10,26 @@ const S = {
     background-color: ${colors.navy[2]};
     /* height: 100%; */
   `,
-  NavButton: styled.button`
-
+  Nav: styled.nav`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  `,
+  NavButton: styled(Button)`
+    height: 40px;
   `,
 };
 
+const SideButton = ({ name, path }: {name: string, path: string}) => {
+  return <S.NavButton>
+    <NavLink to={path}>{name}</NavLink>
+  </S.NavButton>;
+}
+
 export const Sidebar = () => {
-  return <S.Sidebar>Sidebar</S.Sidebar>;
+  return <S.Sidebar>
+    <S.Nav>
+      <S.NavButton>Dashboard</S.NavButton>
+    </S.Nav>
+  </S.Sidebar>;
 }
