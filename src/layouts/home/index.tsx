@@ -1,8 +1,7 @@
 import { Outlet } from 'react-router'
 import styled from 'styled-components'
-import './Home.css'
-import { Sidebar } from '../pages/home-page/components/sidebar';
-import Header from '../pages/home-page/components/header';
+import { Sidebar } from './components/sidebar';
+import { Header } from './components/header';
 import { colors } from 'src/constants/colors';
 
 const S = {

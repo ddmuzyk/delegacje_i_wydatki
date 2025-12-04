@@ -6,8 +6,8 @@ import { defaultButtonStyles } from "src/constants/styles";
 import { useLocation } from "react-router";
 
 const sideBarRoutes = [
-  { name: 'Home', path: routes.home },
-  { name: 'Delegations', path: routes.delegations },
+  { name: 'Strona główna', path: routes.home },
+  { name: 'Moje delegacje', path: routes.delegations },
 ]
 
 const S = {

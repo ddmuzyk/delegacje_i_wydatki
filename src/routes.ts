@@ -13,7 +13,7 @@ import { routes } from "./constants/routes";
 // ] satisfies RouteConfig;
 
 export default [
-  layout('./layouts/Home.tsx', [
+  layout('./layouts/home/index.tsx', [
     index('./pages/home-page/index.tsx'),
     route(routes.delegations, './pages/delegations/index.tsx'),
   ]),

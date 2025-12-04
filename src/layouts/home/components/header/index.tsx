@@ -19,9 +19,9 @@ const S = {
   `,
 };
 
-export default function Header() {
+export const Header = () => {
   return <S.Header>
-    <S.Heading>Delegations</S.Heading>
-    <Button variant="text">Logout</Button>
+    <S.Heading>Delegacje</S.Heading>
+    <Button variant="text">Wyloguj</Button>
   </S.Header>;
 }

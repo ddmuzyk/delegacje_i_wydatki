@@ -10,6 +10,7 @@ export const colors = {
   },
   grey: {
     1: '#E3E3E3',
+    8: '#212121',
   },
   white: '#FFFFFF',
 }
