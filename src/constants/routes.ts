@@ -22,5 +22,6 @@
 export const routes = {
   home: '/',
   delegations: '/delegations',
+  createDelegation: '/delegations/create',
 }
 

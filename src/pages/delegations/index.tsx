@@ -26,12 +26,6 @@ const S = {
     align-items: center;
     gap: 16px;
   `,
-  // HeadingWrapper: styled.div`
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: center;
-  //   height: 60px;
-  // `,
   Heading: styled.h1`
     margin-block: 32px;
     color: ${colors.grey[8]};
@@ -41,21 +35,24 @@ const S = {
     list-style: none;
     display: flex;
     flex-direction: column;
-    padding-inline: 16px;
+    padding-inline: 60px;
+    max-width: 1200px;
     box-sizing: border-box;
     gap: 16px;
   `,
 };
 
 export default function DelegationsPage() {
-  return <S.Wrapper>
-    <S.Heading>Moje delegacje</S.Heading>
-    <S.DelegationList>
-      {mockDelegations.concat(moreMockDelegations).map((delegation, index) => (
-        <li key={index}>
-          <Delegation {...delegation} />
-        </li>
-      ))}
-    </S.DelegationList>
-  </S.Wrapper>;
+  return (
+    <S.Wrapper>
+      <S.Heading>Moje delegacje</S.Heading>
+      <S.DelegationList>
+        {mockDelegations.concat(moreMockDelegations).map((delegation, index) => (
+          <li key={index}>
+            <Delegation {...delegation} />
+          </li>
+        ))}
+      </S.DelegationList>
+    </S.Wrapper>
+  );
 }

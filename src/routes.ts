@@ -16,5 +16,6 @@ export default [
   layout('./layouts/home/index.tsx', [
     index('./pages/home-page/index.tsx'),
     route(routes.delegations, './pages/delegations/index.tsx'),
+    route(routes.createDelegation, './pages/create-delegation/index.tsx'),
   ]),
 ] satisfies RouteConfig;
