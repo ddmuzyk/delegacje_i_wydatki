@@ -75,6 +75,7 @@ export const Delegation = ({ name, dateFrom, dateTo, status }: DelegationProps) 
         return "";
     }
   })();
+  
   return (
     <S.Wrapper>
       <S.Name>{name}</S.Name>

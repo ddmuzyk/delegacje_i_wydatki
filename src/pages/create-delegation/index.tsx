@@ -1,12 +1,33 @@
 import styled from "styled-components";
+import { useRef } from "react";
 import { colors } from "src/constants/colors";
 import { FormGroup, TextField } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Button } from "src/components/button";
-import plus from "src/assets/plus.svg";
+import plus from "src/assets/plus-white.svg";
+import { Expense, ExpenseProps } from "../delegations/components/expense";
+import { Dialog, DialogRef, DialogHeader } from "src/components/dialog";
+import { showDialog, closeDialog } from "src/components/dialog/utils";
 // import dayjs from "dayjs";
+
+const mockExpenses: ExpenseProps[] = [
+  {
+    title: "Lunch with client",
+    amount: 45.50,
+    currency: "USD",
+    date: "2023-10-12",
+    description: "Business lunch at Italian restaurant"
+  },
+  {
+    title: "Taxi to airport",
+    amount: 30.00,
+    currency: "USD",
+    date: "2023-10-13",
+    description: "Taxi ride from office to airport"
+  }
+];
 
 const S = {
   Wrapper: styled.section`
@@ -70,9 +91,19 @@ const S = {
     width: 18px;
     height: 18px;
   `,
+  ExpenseList: styled.ol`
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  `,
 }
 
 export default function AddDelegationPage() {
+  const dialogRef = useRef<DialogRef>(null);
+
   return (
     <S.Wrapper>
       <S.Heading>Utwórz delegację</S.Heading>
@@ -94,12 +125,22 @@ export default function AddDelegationPage() {
           <S.DataGroup>
             <S.ExpensesHeadingWrapper>
               <S.ExpensesHeading>Wydatki</S.ExpensesHeading>
-              <S.Button onClick={() => {}}>
+              <S.Button onClick={() => showDialog(dialogRef)}>
                 <S.PlusIcon src={plus} alt="Add" />
               </S.Button>
             </S.ExpensesHeadingWrapper>
+            <S.ExpenseList>
+              {mockExpenses.map((expense, index) => (
+                <li key={index}>
+                  <Expense {...expense} />
+                </li>
+              ))}
+            </S.ExpenseList>
           </S.DataGroup>
         </S.Form>
+        <Dialog ref={dialogRef}>
+          <DialogHeader title="Dodaj wydatek" onClose={() => closeDialog(dialogRef)} />
+        </Dialog>
       </LocalizationProvider>
     </S.Wrapper>
   );
