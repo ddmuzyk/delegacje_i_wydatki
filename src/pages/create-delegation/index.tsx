@@ -4,6 +4,7 @@ import { FormGroup, TextField } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import dayjs from "dayjs";
 
 const S = {
   Wrapper: styled.section`
@@ -54,8 +55,8 @@ export default function AddDelegationPage() {
             <S.RowTextField label="Miasto" />
           </S.FormGroup>
           <S.FormGroup>
-            <S.DatePicker label="Data od" />
-            <S.DatePicker label="Data do" />
+            <S.DatePicker label="Data od" disableFuture={true} />
+            <S.DatePicker label="Data do" disableFuture={true} />
           </S.FormGroup>
         </S.Form>
       </LocalizationProvider>

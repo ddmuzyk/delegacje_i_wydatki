@@ -83,7 +83,7 @@ export const Delegation = ({ name, dateFrom, dateTo, status }: DelegationProps) 
       </S.Date>
       <S.BottomWrapper>
         <S.Status $status={status}>{statusMessage}</S.Status>
-        <S.ViewDetailsButton>View Details</S.ViewDetailsButton>
+        <S.ViewDetailsButton>Zobacz szczegóły</S.ViewDetailsButton>
       </S.BottomWrapper>
     </S.Wrapper>
   );
