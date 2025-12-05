@@ -25,7 +25,7 @@ const S = {
     background-color: ${colors.white};
     gap: 1px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 0;
     max-width: 500px;
@@ -57,8 +57,12 @@ export const DialogHeader = ({ title, onClose }: DialogHeaderProps) => {
       <S.DialogTitle>{title}</S.DialogTitle>
       {onClose && <Button onClick={onClose}>Zamknij</Button>}
     </S.DialogHeader>
-);
+  );
 }
+
+export const DialogContent = styled.div`
+  padding: 16px;
+`;
 
 export const Dialog = ({ children, ref }: DialogProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);

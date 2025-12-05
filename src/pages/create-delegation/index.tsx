@@ -8,7 +8,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Button } from "src/components/button";
 import plus from "src/assets/plus-white.svg";
 import { Expense, ExpenseProps } from "../delegations/components/expense";
-import { Dialog, DialogRef, DialogHeader } from "src/components/dialog";
+import { Dialog, DialogContent, DialogRef, DialogHeader } from "src/components/dialog";
 import { showDialog, closeDialog } from "src/components/dialog/utils";
 // import dayjs from "dayjs";
 
@@ -68,6 +68,7 @@ const S = {
   `,
   DatePicker: styled(DatePicker)`
     flex: 1;
+    z-index: 1500;
   `,
   ExpensesHeadingWrapper: styled.div`
     display: flex;
@@ -139,7 +140,19 @@ export default function AddDelegationPage() {
           </S.DataGroup>
         </S.Form>
         <Dialog ref={dialogRef}>
-          <DialogHeader title="Dodaj wydatek" onClose={() => closeDialog(dialogRef)} />
+          <DialogHeader title="Nowy wydatek" onClose={() => closeDialog(dialogRef)} />
+          <DialogContent>
+            <S.DataGroup>
+              <TextField label="Tytuł" fullWidth />
+              <S.FormGroup>
+                <S.RowTextField label="Kwota" type="number" />
+                <S.RowTextField label="Waluta" />
+              </S.FormGroup>
+              <S.DatePicker label="Data" disableFuture={true} />
+              <TextField label="Opis" multiline rows={4} fullWidth />
+              <S.Button type="submit" onClick={() => closeDialog(dialogRef)}>Dodaj wydatek</S.Button>
+            </S.DataGroup>
+          </DialogContent>
         </Dialog>
       </LocalizationProvider>
     </S.Wrapper>
